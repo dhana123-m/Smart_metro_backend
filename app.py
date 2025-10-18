@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from src.detection.people_counter import (
+from detection.people_counter import (
     start_video_counts,
     stop_video_counts,
     get_latest_counts,
