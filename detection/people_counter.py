@@ -2,12 +2,14 @@ from ultralytics import YOLO
 import cv2
 import threading
 import time
+import os
 
 # ----------------------------
 # Load YOLO model safely
 # ----------------------------
-# Use weights_only=True to avoid pickling errors
-model = YOLO("retrained_model.pt")
+# Using official pre-trained model for testing
+MODEL_PATH = "yolov8n.pt"  # pre-trained weights from Ultralytics
+model = YOLO(MODEL_PATH)
 
 # ----------------------------
 # Global variables
@@ -51,8 +53,7 @@ def start_video_counts(sources: dict):
     """
     sources = {
         "compartment_1": "data/videos/comp1.mp4",
-        "compartment_2": "data/videos/comp2.mp4",
-        ...
+        "compartment_2": "data/videos/comp2.mp4"
     }
     """
     global running_threads, running
